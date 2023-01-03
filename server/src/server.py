@@ -3,7 +3,7 @@ import ssl
 import json
 
 HOST = "localhost"  # Standard loopback interface address (localhost)
-PORT = 65439  # Port to listen on (non-privileged ports are > 1023)
+PORT = 65441  # Port to listen on (non-privileged ports are > 1023)
 SSL=True
 
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
@@ -39,7 +39,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
                 rcv += d
                 conn.send(b"OK")
 
-        
+        print(rcv)
         data = json.loads(rcv.decode('utf-8'))
         
         if(data['name'] not in known_devices):

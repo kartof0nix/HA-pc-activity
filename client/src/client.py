@@ -7,9 +7,9 @@ import time
 pattern = {"wifi":"nmcli -g name connection show --active"}
 
 HOST = "localhost"  # The server's hostname or IP address
-PORT = 65439  # The port used by the server
+PORT = 65441  # The port used by the server
 NAME="karol-hp"
-TOKEN="3gdf8ugg"
+TOKEN="3gdf8ug"
 
 SSL=True
 UPDATE_FRQ = 5
@@ -18,7 +18,7 @@ def connect_and_send(data):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((HOST, PORT))
 
-        if(ssl):
+        if(SSL):
             s = context.wrap_socket(sock, server_hostname=HOST)
             print(s.version())
         else:
